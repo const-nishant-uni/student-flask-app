@@ -28,8 +28,7 @@ pipeline {
 
         stage('Stop Old Container') {
             steps {
-                bat 'docker stop student-app'
-                bat 'docker rm student-app'
+                bat 'docker rm -f student-app 2>nul || exit /b 0'
             }
         }
 
